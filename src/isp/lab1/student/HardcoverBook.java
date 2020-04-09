@@ -1,10 +1,10 @@
-package isp.lab1;
+package isp.lab1.student;
 
 import java.time.Duration;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-public class PaperbackBook implements Product {
+public class HardcoverBook implements Book {
 
     private String title;
     private String isbn;
@@ -14,7 +14,7 @@ public class PaperbackBook implements Product {
     private String author;
     private int pageCount;
 
-    public PaperbackBook(String title, String isbn, double cost, int quantityOnHand, LocalDate releaseDate, String author, int pageCount) {
+    public HardcoverBook(String title, String isbn, double cost, int quantityOnHand, LocalDate releaseDate, String author, int pageCount) {
         this.title = title;
         this.isbn = isbn;
         this.cost = cost;
@@ -22,11 +22,6 @@ public class PaperbackBook implements Product {
         this.releaseDate = releaseDate;
         this.author = author;
         this.pageCount = pageCount;
-    }
-
-    @Override
-    public String getArtist() {
-        return "";
     }
 
     @Override
@@ -55,11 +50,6 @@ public class PaperbackBook implements Product {
     }
 
     @Override
-    public Duration getPlayingTime() {
-        return null;
-    }
-
-    @Override
     public int getQuantityOnHand() {
         return quantityOnHand;
     }
@@ -84,15 +74,14 @@ public class PaperbackBook implements Product {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder("Paperback Book: ");
-        sb.append("\n Title: ").append(title);
-        sb.append("\n Author: ").append(author);
-        sb.append("\n Cost: $").append(cost);
-        sb.append("\n ISBN: ").append(isbn);
-        sb.append("\n Pages: ").append(pageCount);
-        sb.append("\n Release date: ").append(getFormattedReleaseDate());
-        sb.append("\n Quantity on hand: ").append(quantityOnHand);
-        return sb.toString();
+        String sb = "Hardcover Book: " + "\n Title: " + title +
+                "\n Author: " + author +
+                "\n Cost: $" + cost +
+                "\n ISBN: " + isbn +
+                "\n Pages: " + pageCount +
+                "\n Release date: " + getFormattedReleaseDate() +
+                "\n Quantity on hand: " + quantityOnHand;
+        return sb;
     }
 
 }

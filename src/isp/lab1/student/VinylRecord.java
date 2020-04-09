@@ -1,10 +1,10 @@
-package isp.lab1;
+package isp.lab1.student;
 
 import java.time.Duration;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-public class VinylRecord implements Product {
+public class VinylRecord implements Album {
 
     private final int SECONDS_IN_MINUTE = 60;
     private final int SECONDS_IN_HOUR = SECONDS_IN_MINUTE * 60;
@@ -31,11 +31,6 @@ public class VinylRecord implements Product {
     }
 
     @Override
-    public String getAuthor() {
-        return "";
-    }
-
-    @Override
     public double getCost() {
         return cost;
     }
@@ -51,16 +46,6 @@ public class VinylRecord implements Product {
     @Override
     public String getFormattedReleaseDate() {
         return releaseDate.format(DateTimeFormatter.ISO_LOCAL_DATE);
-    }
-
-    @Override
-    public String getISBN() {
-        return "";
-    }
-
-    @Override
-    public int getPages() {
-        return 0;
     }
 
     @Override
@@ -93,13 +78,12 @@ public class VinylRecord implements Product {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder("Vinyl Record: ");
-        sb.append("\n Title: ").append(title);
-        sb.append("\n Artist: ").append(artist);
-        sb.append("\n Cost: $").append(cost);
-        sb.append("\n Playing time: ").append(getFormattedPlayingTime());
-        sb.append("\n Release date: ").append(getFormattedReleaseDate());
-        sb.append("\n Quantity on hand: ").append(quantityOnHand);
-        return sb.toString();
+        String sb = "Vinyl Record: " + "\n Title: " + title +
+                "\n Artist: " + artist +
+                "\n Cost: $" + cost +
+                "\n Playing time: " + getFormattedPlayingTime() +
+                "\n Release date: " + getFormattedReleaseDate() +
+                "\n Quantity on hand: " + quantityOnHand;
+        return sb;
     }
 }
